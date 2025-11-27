@@ -1,0 +1,10 @@
+metrics = {
+    "accuracy" : report["accuracy"],
+    "precision": report["1"]["precision"],
+    "recall"   : report["1"]["recall"],
+    "f1"       : report["1"]["f1-score"],
+}
+
+print("\n[METRICS SUMMARY]")
+for k, v in metrics.items():
+    print(f"{k}: {v:.4f}")
