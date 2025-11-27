@@ -1,0 +1,12 @@
+def build_drawdown_report(std_ret: pd.Series) -> pd.DataFrame:
+    equity_curve = (1 + std_ret.fillna(0)).cumprod()
+    running_max  = equity_curve.cummax()
+    drawdown     = (equity_curve - running_max) / running_max
+
+    report = pd.DataFrame({
+        "equity"  : equity_curve,
+        "run_max" : running_max,
+        "dd"      : drawdown
+    })
+    print("\n[STATS] Max DD:", report["dd"].min())
+    return report
