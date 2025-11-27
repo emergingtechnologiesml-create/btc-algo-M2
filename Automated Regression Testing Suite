@@ -1,0 +1,8 @@
+def regression_check(model, X, y, min_f1=0.45):
+    y_pred = model.predict(X)
+    report = classification_report(y, y_pred, output_dict=True)
+    f1     = report["1"]["f1-score"]
+
+    print(f"[REGRESSION] F1={f1:.4f}  threshold={min_f1}")
+    assert f1 >= min_f1, "Regression test failed: F1 dropped below threshold"
+    return f1
