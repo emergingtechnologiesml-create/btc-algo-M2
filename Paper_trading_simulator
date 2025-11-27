@@ -1,0 +1,10 @@
+probs = clf.predict_proba(X_test)[:, 1]
+
+positions = np.where(
+    probs > entry_threshold, 1,
+    np.where(probs < exit_threshold, -1, 0)
+)
+
+print("\n=== PAPER TRADING DECISIONS ===")
+print("Probability Sample:", probs[:10])
+print("Position Sample   :", positions[:10])
