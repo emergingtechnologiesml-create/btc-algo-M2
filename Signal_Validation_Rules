@@ -1,0 +1,11 @@
+def validate_macd_signal(macd, signal):
+    last, prev = len(macd)-1, len(macd)-2
+
+    bullish = macd[prev] < signal[prev] and macd[last] > signal[last]
+    bearish = macd[prev] > signal[prev] and macd[last] < signal[last]
+
+    print("\nMACD Validation")
+    print("Prev:", macd[prev], " Signal:", signal[prev])
+    print("Last:", macd[last], " Signal:", signal[last])
+
+    return bullish, bearish
