@@ -1,0 +1,11 @@
+tscv = TimeSeriesSplit(n_splits=5)
+for fold, (train_idx, test_idx) in enumerate(tscv.split(X)):
+    X_train, X_test = X[train_idx], X[test_idx]
+    y_train, y_test = y[train_idx], y[test_idx]
+
+    print(f"\n=== Forward Test Fold {fold+1} ===")
+    clf.fit(X_train, y_train)
+    y_pred = clf.predict(X_test)
+
+    report = classification_report(y_test, y_pred)
+    print(report)
