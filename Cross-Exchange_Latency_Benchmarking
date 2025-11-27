@@ -1,0 +1,8 @@
+def timed_predict(model, X_batch):
+    start_ts = time.perf_counter()
+    y_pred   = model.predict(X_batch)
+    end_ts   = time.perf_counter()
+
+    latency_ms = (end_ts - start_ts) * 1000
+    print(f"[LATENCY] Batch size={len(X_batch)}  latency={latency_ms:.2f} ms")
+    return y_pred, latency_ms
