@@ -1,0 +1,10 @@
+def ewma_volatility(series: pd.Series, halflife=10, min_periods=5, winsor_q=(0.01, 0.99)):
+    s = series.copy()
+    if winsor_q is not None:
+        lo, hi = winsor_q
+        ql = s.expanding(min_periods=10).quantile(lo).shift(1)
+        qh = s.expanding(min_periods=10).quantile(hi).shift(1)
+        s  = s.clip(lower=ql, upper=qh)
+
+    vol = s.ewm(halflife=halflife, min_periods=min_periods, adjust=False).std()
+    return vol.shift(1)
