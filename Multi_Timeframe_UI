@@ -1,0 +1,6 @@
+st.sidebar.header("Multi-Timeframe Controls")
+
+window = st.sidebar.slider("Feature Window", min_value=20, max_value=500, value=120)
+lookahead = st.sidebar.selectbox("Forward Window (TF equivalent)", [1, 3, 5, 10, 20])
+
+st.write(f"Using derived timeframe ≈ {lookahead}-step forward returns")
