@@ -1,0 +1,10 @@
+def log_trade_event(timestamp, side, size, price, reason):
+    msg = (
+        f"[TRADE] {timestamp} | side={side:<4} "
+        f"size={size:.4f} price={price:.2f} reason={reason}"
+    )
+    print(msg)
+
+# Example usage when position flips
+if new_pos != old_pos:
+    log_trade_event(ts, "LONG" if new_pos > 0 else "SHORT", 1.0, close_price, "signal_cross")
