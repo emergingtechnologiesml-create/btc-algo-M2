@@ -1,0 +1,9 @@
+def apply_thresholds(prob, long_th=0.60, short_th=0.40):
+    if prob > long_th:
+        return 1   # enter long
+    elif prob < short_th:
+        return -1  # enter short
+    return 0       # stay flat
+
+positions = np.array([apply_thresholds(p) for p in probs])
+print("Threshold-controlled positions:", positions[:15])
