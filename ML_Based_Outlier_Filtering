@@ -1,0 +1,8 @@
+def rolling_zscore(series: pd.Series, window=200, min_periods=30):
+    roll = series.rolling(window=window, min_periods=min_periods)
+    mean = roll.mean()
+    std  = roll.std().replace(0, np.nan)
+
+    z = (series - mean) / std
+    z = z.replace([np.inf, -np.inf], np.nan)
+    return z
