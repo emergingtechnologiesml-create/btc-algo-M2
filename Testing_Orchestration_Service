@@ -1,0 +1,11 @@
+def run_full_test_suite(model, X, y):
+    tscv = TimeSeriesSplit(n_splits=5)
+    results = []
+
+    for fold, (tr, ts) in enumerate(tscv.split(X)):
+        print(f"\n[TEST SUITE] Running Fold {fold+1}")
+        model.fit(X[tr], y[tr])
+        preds = model.predict(X[ts])
+        results.append(classification_report(y[ts], preds, output_dict=True))
+
+    return results
