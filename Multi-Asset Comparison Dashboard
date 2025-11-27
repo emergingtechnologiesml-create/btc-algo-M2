@@ -1,0 +1,7 @@
+st.sidebar.subheader("Asset Selection")
+
+assets = ["BTC", "ETH", "SOL"]  # currently BTC is wired; others are placeholders
+asset  = st.sidebar.selectbox("Asset", assets)
+
+st.write(f"Selected asset: {asset}")
+st.line_chart(df["close"].tail(500))
