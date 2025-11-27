@@ -1,0 +1,7 @@
+st.sidebar.subheader("System Diagnostics")
+
+st.write("Shape:", df.shape)
+st.write("Columns:", list(df.columns))
+
+st.metric("Non-NaN close%", 100 * df["close"].notna().mean())
+st.metric("Non-NaN vol%",   100 * df["vol"].notna().mean() if "vol" in df else 0)
