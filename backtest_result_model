@@ -1,8 +1,0 @@
-report = classification_report(y_test, y_pred, output_dict=True)
-all_reports.append(report)
-
-print("=== Backtest Fold Result ===")
-print("Accuracy :", report["accuracy"])
-print("Precision:", report["1"]["precision"])
-print("Recall   :", report["1"]["recall"])
-print("F1 Score :", report["1"]["f1-score"])
