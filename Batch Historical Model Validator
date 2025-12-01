@@ -1,0 +1,8 @@
+def validate_on_history(model, datasets):
+    results = {}
+    for name, (X, y) in datasets.items():
+        preds = model.predict(X)
+        acc = (preds == y).mean()
+        results[name] = acc
+        print(f"[HIST-VALIDATOR] {name}: accuracy={acc:.3f}")
+    return results
