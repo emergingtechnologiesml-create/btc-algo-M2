@@ -1,0 +1,2 @@
+df["volume_price_corr_z"] = rolling_zscore(df["volume_price_corr"], 200)
+df["trade_flow_anomaly"] = (df["volume_price_corr_z"].abs() > 3).astype(int)
