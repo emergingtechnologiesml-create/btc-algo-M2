@@ -1,0 +1,6 @@
+def auto_thresholds(probs, hit_rate=0.2):
+    sorted_p = np.sort(probs)
+    long_th  = sorted_p[int((1-hit_rate)*len(sorted_p))]
+    short_th = sorted_p[int(hit_rate*len(sorted_p))]
+    print(f"[AUTO-THR] long>{long_th:.3f}  short<{short_th:.3f}")
+    return long_th, short_th
