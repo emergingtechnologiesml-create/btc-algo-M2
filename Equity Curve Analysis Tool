@@ -1,0 +1,4 @@
+def analyze_equity(std_ret):
+    eq = (1+std_ret.fillna(0)).cumprod()
+    dd = (eq/eq.cummax()-1)
+    return {"final": eq.iloc[-1], "maxDD": dd.min()}
