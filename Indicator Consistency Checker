@@ -1,0 +1,7 @@
+def check_indicator_consistency(df):
+    issues=[]
+    if "RSI" in df and ((df["RSI"]<0)|(df["RSI"]>100)).any():
+        issues.append("RSI out of range")
+    if "macd" in df and df["macd"].isna().any():
+        issues.append("MACD contains NaN")
+    return issues
