@@ -1,0 +1,6 @@
+def snapshot_ui_state(df):
+    return {
+        "rows": len(df),
+        "columns": list(df.columns),
+        "nan_close": df["close"].isna().sum()
+    }
