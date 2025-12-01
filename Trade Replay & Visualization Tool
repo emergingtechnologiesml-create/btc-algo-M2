@@ -1,0 +1,5 @@
+def replay_trades(df, positions):
+    for ts, price, pos in zip(df.index, df["close"], positions):
+        if pos != 0:
+            side = "BUY" if pos > 0 else "SELL"
+            print(f"[TRADE-REPLAY] {ts}  {side} @ {price:.2f}")
