@@ -1,0 +1,3 @@
+def count_trades(pos):
+    s = np.sign(pos)
+    return int((np.diff(s)!=0 & (s[1:]!=0)).sum())
