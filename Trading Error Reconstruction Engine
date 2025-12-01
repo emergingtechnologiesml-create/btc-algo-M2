@@ -1,0 +1,4 @@
+def reconstruct_error(context, exc):
+    print("[ERROR]", exc)
+    print("Latest timestamp:", context.index[-1])
+    print("Last row:", context.tail(1).to_dict())
