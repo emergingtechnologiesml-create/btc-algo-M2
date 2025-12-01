@@ -1,0 +1,6 @@
+def detect_conflicts(patterns):
+    names=[p["pattern_name"] for p in patterns]
+    conflicts=[]
+    if "Bullish Divergence" in names and "Bearish Divergence" in names:
+        conflicts.append("Divergence conflict")
+    return conflicts
