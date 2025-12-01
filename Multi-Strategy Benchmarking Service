@@ -1,0 +1,6 @@
+def compare_strategies(strategies, X, y):
+    scores={}
+    for name, model in strategies.items():
+        y_pred = model.predict(X)
+        scores[name] = (y_pred==y).mean()
+    return scores
