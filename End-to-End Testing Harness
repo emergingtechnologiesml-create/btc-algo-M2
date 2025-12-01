@@ -1,0 +1,7 @@
+def run_bot(model, df):
+    X = build_features(df)
+    probs = model.predict_proba(X)[:,1]
+    positions = np.where(probs>0.6,1,np.where(probs<0.4,-1,0))
+    trades = (np.diff(np.sign(positions))!=0).sum()
+    print(f"[BOT] trades={trades}")
+    return positions
