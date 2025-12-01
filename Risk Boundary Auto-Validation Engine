@@ -1,0 +1,2 @@
+df["risk_violation"] = (df["std_ret_fwd"].abs() > 3.0).astype(int)
+print("[RISK] violations:", df["risk_violation"].sum())
