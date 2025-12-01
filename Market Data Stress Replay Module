@@ -1,0 +1,4 @@
+def replay_market(df, handler):
+    for ts, row in df.iterrows():
+        event = {"timestamp": ts, "close": row["close"], "volume": row.get("volume",None)}
+        handler(event)
