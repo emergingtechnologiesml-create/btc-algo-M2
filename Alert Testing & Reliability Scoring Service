@@ -1,0 +1,7 @@
+def alert_reliability(alert_flags):
+    total = len(alert_flags)
+    fired = int(alert_flags.sum())
+    ratio = fired / total if total else 0
+    score = 1 - abs(ratio - 0.05)  # ideal 5% alerts
+    print(f"[ALERT-SCORE] {fired}/{total} ({ratio:.2%}) score={score:.3f}")
+    return score
