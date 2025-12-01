@@ -1,0 +1,6 @@
+def normalize_api_response(data):
+    return {
+        "indicator": data.get("indicator"),
+        "matched_patterns": data.get("matched_patterns", []),
+        "all_patterns": data.get("all_patterns", [])
+    }
