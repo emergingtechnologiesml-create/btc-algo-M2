@@ -1,0 +1,5 @@
+def price_divergence(spot, future):
+    merged = pd.concat({"spot":spot,"future":future},axis=1).dropna()
+    merged["basis"] = merged["future"] - merged["spot"]
+    merged["basis_z"] = rolling_zscore(merged["basis"],200)
+    return merged
