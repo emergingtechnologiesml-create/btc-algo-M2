@@ -1,0 +1,5 @@
+def replay_triggers(df, positions):
+    for ts, price, pos in zip(df.index, df["close"], positions):
+        if pos != 0:
+            label = "BUY" if pos>0 else "SELL"
+            print(f"[TRIGGER] {ts} -> {label} @ {price:.2f}")
